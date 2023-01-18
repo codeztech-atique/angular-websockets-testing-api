@@ -1,0 +1,31 @@
+<div class="notifications notification-alignments">
+  <div
+    *ngFor="let notification of notifications"
+    class="notification"
+    [ngClass]="className(notification)"
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        notificationTpl;
+        context: { notification: notification }
+      "
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #notificationTpl let-notification="notification">
+  <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="notification-heading">{{ notification.title }}</div>
+    <!-- <button mat-icon-button 
+          (click)="close(notification)"
+          matTooltip="Close the notification"
+          matTooltipPosition="before">
+      <mat-icon>cancel</mat-icon>
+    </button> -->
+    <div class="notification-close" tabindex="1" (click)="close(notification)">
+      Close
+    </div>
+  </div>
+
+  <div class="message">{{ notification.message }}</div>
+</ng-template>
