@@ -34,9 +34,10 @@ export class NotificationListComponent implements OnInit {
       });
   }
 
-  ngOnDestroy() {
-    this._subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   console.log('I am destroyed.');
+  //   this._subscription.unsubscribe();
+  // }
 
   close(notification: Notification) {
     this.notifications = this.notifications.filter(
